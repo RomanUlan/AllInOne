@@ -1,4 +1,4 @@
-ThreadPool
+All in One
 ==========
 
 1. To compile this project just type: make
