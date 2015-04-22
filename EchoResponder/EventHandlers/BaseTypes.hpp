@@ -1,9 +1,9 @@
 #ifndef BASE_TYPES_HPP
 #define BASE_TYPES_HPP
 
-#include "../EventEngines/HalfSyncHalfAsync.hpp"
-#include "../EventEngines/SyncEventHandler.hpp"
-#include "../EventEngines/AsyncEventHandler.hpp"
+#include "EventEngines/HalfSyncHalfAsync.hpp"
+#include "EventEngines/SyncEventHandler.hpp"
+#include "EventEngines/AsyncEventHandler.hpp"
 
 #include "EpollED.hpp"
 #include "SocketES.hpp"

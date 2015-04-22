@@ -1,8 +1,8 @@
 #ifndef EPOLL_REACTOR_HPP
 #define EPOLL_REACTOR_HPP
 
-#include "../EventEngines/EventDemultiplexer.hpp"
-#include "../IO/Epoll.hpp"
+#include "EventEngines/EventDemultiplexer.hpp"
+#include "IO/Epoll.hpp"
 
 class EpollED: public EventDemultiplexer
 {

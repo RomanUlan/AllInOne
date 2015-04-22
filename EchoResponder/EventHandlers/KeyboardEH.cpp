@@ -1,5 +1,5 @@
 #include "KeyboardEH.hpp"
-#include "../IO/Epoll.hpp"
+#include "IO/Epoll.hpp"
 
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>

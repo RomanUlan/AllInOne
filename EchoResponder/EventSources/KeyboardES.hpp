@@ -2,7 +2,7 @@
 #define KEYBOARD_ES_HPP
 
 #include "SocketES.hpp"
-#include "../IO/KeyboardSocket.hpp"
+#include "IO/KeyboardSocket.hpp"
 
 class KeyboardES: public SocketES
 {

@@ -1,7 +1,7 @@
 #ifndef ACCEPTOR_EH_HPP
 #define ACCEPTOR_EH_HPP
 
-#include "../EventEngines/ThreadPool.hpp"
+#include "EventEngines/ThreadPool.hpp"
 #include "ListenerES.hpp"
 
 class AcceptorEH : public EventHandler

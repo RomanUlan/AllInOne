@@ -1,8 +1,8 @@
 #ifndef SOCKET_ES_HPP
 #define SOCKET_ES_HPP
 
-#include "../EventEngines/EventSource.hpp"
-#include "../IO/Socket.hpp"
+#include "EventEngines/EventSource.hpp"
+#include "IO/Socket.hpp"
 
 class SocketES: public EventSource
 {

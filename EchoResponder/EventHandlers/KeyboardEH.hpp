@@ -1,7 +1,7 @@
 #ifndef KEYBOARD_EH_HPP
 #define KEYBOARD_EH_HPP
 
-#include "../EventEngines/ThreadPool.hpp"
+#include "EventEngines/ThreadPool.hpp"
 #include "KeyboardES.hpp"
 #include <fstream>
 

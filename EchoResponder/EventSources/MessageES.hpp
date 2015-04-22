@@ -2,8 +2,8 @@
 #define ECHO_ES_HPP
 
 #include "SocketES.hpp"
-#include "../IO/TcpSocket.hpp"
-#include "../EventEngines/EventSource.hpp"
+#include "IO/TcpSocket.hpp"
+#include "EventEngines/EventSource.hpp"
 
 class MessageES: public SocketES
 {

@@ -1,7 +1,7 @@
 #ifndef ECHO_RESPONDER_EH_HPP
 #define ECHO_RESPONDER_EH_HPP
 
-#include "../EventEngines/ThreadPool.hpp"
+#include "EventEngines/ThreadPool.hpp"
 #include "MessageES.hpp"
 
 class EchoResponderEH : public EventHandler

@@ -1,5 +1,5 @@
 #include "EchoResponderEH.hpp"
-#include "../IO/Epoll.hpp"
+#include "IO/Epoll.hpp"
 
 #include <boost/algorithm/string.hpp>
 

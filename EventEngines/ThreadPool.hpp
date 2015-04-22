@@ -3,7 +3,7 @@
 
 #include "EventHandler.hpp"
 #include "EventDemultiplexer.hpp"
-#include "../Threading/ThreadPool.hpp"
+#include "Threading/ThreadPool.hpp"
 
 #include <map>
 
