@@ -40,7 +40,7 @@ EventEngine::Ptr EventEngineFactory::createReactor(const Config& p_config)
 
   TcpSocket::Ptr listenerSokcet(new TcpSocket());
   ListenerES::Ptr listenerES(new ListenerES(listenerSokcet, p_config.port));
-  EventHandler::Ptr acceptorEH(new AcceptorEH(listenerES));
+  EventHandler::Ptr acceptorEH(new AcceptorEH<EventEngines::Reactor>(listenerES, *r));
 
   r->add(keybEH);
   r->add(acceptorEH);
@@ -60,7 +60,7 @@ EventEngine::Ptr EventEngineFactory::createTP(const Config& p_config)
 
   TcpSocket::Ptr listenerSokcet(new TcpSocket());
   ListenerES::Ptr listenerES(new ListenerES(listenerSokcet, p_config.port));
-  EventHandler::Ptr acceptorEH(new AcceptorEH(listenerES, *tp));
+  EventHandler::Ptr acceptorEH(new AcceptorEH<EventEngines::ThreadPool>(listenerES, *tp));
 
   tp->add(keybEH);
   tp->add(acceptorEH);

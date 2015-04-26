@@ -12,12 +12,6 @@ int main(int argc, char** argv)
     EventEngine::Ptr ee = EventEngineFactory::create(c);
     if (ee) {
       ee->start();
-      std::string s;
-      while (s != "exit") {
-        std::cout << "Type \'exit\' to quit" << std::endl;
-        ee->stop(true);
-        std::cin >> s;
-      }
     }
   }
   catch (const std::runtime_error& rte)

@@ -11,12 +11,10 @@ ThreadPoolEE::~ThreadPoolEE()
 
 void ThreadPoolEE::start()
 {
-  m_thread.reset(new std::thread(std::bind(&EventEngines::ThreadPool::eventLoop, m_threadPool.get())));
+  m_threadPool->eventLoop();
 }
 
 void ThreadPoolEE::stop(bool p_immediately)
 {
   m_threadPool->interrupt(p_immediately);
-  m_thread->join();
-  m_thread.reset();
 }

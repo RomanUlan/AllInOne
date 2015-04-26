@@ -1,21 +1,16 @@
 #ifndef KEYBOARD_EH_HPP
 #define KEYBOARD_EH_HPP
 
-#include "EventEngines/ThreadPool.hpp"
-#include "KeyboardES.hpp"
-#include <fstream>
+#include "KeyboardEH.hpp"
 
-class KeyboardReactorEH : public EventHandler
+class KeyboardReactorEH : public KeyboardEH
 {
 public:
   KeyboardReactorEH(const std::string&, KeyboardES::Ptr);
   virtual ~KeyboardReactorEH();
 
 public:
-  virtual void handle(const EventSource::EventTypes&);
-
-private:
-  std::ofstream m_file;
+  virtual void finalize();
 };
 
 #endif

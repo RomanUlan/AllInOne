@@ -11,12 +11,10 @@ ReactorEE::~ReactorEE()
 
 void ReactorEE::start()
 {
-  m_thread.reset(new std::thread(std::bind(&EventEngines::Reactor::eventLoop, m_reactor.get())));
+  m_reactor->eventLoop();
 }
 
 void ReactorEE::stop(bool p_immediately)
 {
   m_reactor->interrupt(p_immediately);
-  m_thread->join();
-  m_thread.reset();
 }

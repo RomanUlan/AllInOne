@@ -4,7 +4,7 @@
 namespace EventEngines {
 
 Reactor::Reactor(EventDemultiplexer::Ptr p_eventDemultiplexer)
-  : m_eventDemultiplexer(p_eventDemultiplexer)
+  : m_run(true), m_eventDemultiplexer(p_eventDemultiplexer)
 {
 }
 
