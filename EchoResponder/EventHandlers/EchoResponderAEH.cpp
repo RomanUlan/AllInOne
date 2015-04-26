@@ -16,6 +16,7 @@ void EchoResponderAEH::handle(const std::string& p_message)
   try
   {
     mES->getSocket()->write(p_message);
+    m_hsha.modify(m_eventSource);
   }
   catch (const std::exception& e)
   {

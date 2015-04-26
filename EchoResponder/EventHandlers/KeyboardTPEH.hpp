@@ -1,15 +1,15 @@
-#ifndef KEYBOARD_EH_HPP
-#define KEYBOARD_EH_HPP
+#ifndef KEYBOARDTP_EH_HPP
+#define KEYBOARDTP_EH_HPP
 
 #include "EventEngines/ThreadPool.hpp"
 #include "KeyboardES.hpp"
 #include <fstream>
 
-class KeyboardEH : public EventHandler
+class KeyboardTPEH : public EventHandler
 {
 public:
-  KeyboardEH(const std::string&, KeyboardES::Ptr, EventEngines::ThreadPool&);
-  virtual ~KeyboardEH();
+  KeyboardTPEH(const std::string&, KeyboardES::Ptr, EventEngines::ThreadPool&);
+  virtual ~KeyboardTPEH();
 
 public:
   virtual void handle(const EventSource::EventTypes&);

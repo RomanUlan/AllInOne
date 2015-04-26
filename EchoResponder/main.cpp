@@ -1,33 +1,24 @@
-#include "AcceptorSEH.hpp"
-#include "KeyboardSEH.hpp"
-
 #include <iostream>
 #include <stdexcept>
+#include "ConfigParser.hpp"
+#include "EventEngineFactory.hpp"
 
-int main(int, char**)
+int main(int argc, char** argv)
 {
   try
   {
-    Epoll::Ptr epoll(new Epoll());
-    EpollED::Ptr epollED(new EpollED(epoll));
-    HSHA hsha(epollED, 1);
-
-    KeyboardSocket::Ptr keybSocket(new KeyboardSocket());
-    KeyboardES::Ptr keybES(new KeyboardES(keybSocket));
-    SEH::Ptr keybSEH(new KeyboardSEH("log.txt", keybES));
-    AEH::Ptr keybAEH;
-    HSHA::Handlers keybHandlers(keybSEH, keybAEH);
-
-    TcpSocket::Ptr listenerSokcet(new TcpSocket());
-    ListenerES::Ptr listenerES(new ListenerES(listenerSokcet, 5050));
-    SEH::Ptr acceptorSEH(new AcceptorSEH(listenerES, hsha));
-    AEH::Ptr acceptorAEH;
-    HSHA::Handlers acceptorHandlers(acceptorSEH, acceptorAEH);
-
-    hsha.add(keybHandlers);
-    hsha.add(acceptorHandlers);
-
-    hsha.eventLoop();
+    ConfigParser cp(argc, argv);
+    Config c = cp.get();
+    EventEngine::Ptr ee = EventEngineFactory::create(c);
+    if (ee) {
+      ee->start();
+      std::string s;
+      while (s != "exit") {
+        std::cout << "Type \'exit\' to quit" << std::endl;
+        ee->stop(true);
+        std::cin >> s;
+      }
+    }
   }
   catch (const std::runtime_error& rte)
   {

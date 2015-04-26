@@ -12,11 +12,13 @@ IDL_OUT_DIR=./
 #Source directories
 SRC_DIRS= ./Threading ./EventEngines ./IO ./EchoResponder \
 		  ./EchoResponder/EventDemultiplexer ./EchoResponder/EventHandlers \
-		  ./EchoResponder/EventSources
+		  ./EchoResponder/EventSources ./EchoResponder/EventEngines \
+		  ./EchoResponder/Configuration
 
 #Headers directories
 INC_DIRS=$(IDL_OUT_DIR) ./ ./EchoResponder/EventDemultiplexer ./EchoResponder/EventHandlers \
-		  ./EchoResponder/EventSources
+		  ./EchoResponder/EventSources ./EchoResponder/EventEngines \
+		  ./EchoResponder/Configuration
 
 #Compilers flags
 CFLAGS=-std=c++11 -MMD -g -c -Wall

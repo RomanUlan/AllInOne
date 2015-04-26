@@ -5,20 +5,22 @@
 #include "EventDemultiplexer.hpp"
 
 #include <map>
-#include <boost/thread/mutex.hpp>
-
+#include <mutex>
+namespace EventEngines {
 class Reactor
 {
 public:
-  typedef boost::shared_ptr<Reactor> Ptr;
+  typedef std::shared_ptr<Reactor> Ptr;
 
 public:
   explicit Reactor(EventDemultiplexer::Ptr);
   ~Reactor();
 
   void add(EventHandler::Ptr);
+  void modify(EventSource::Ptr);
   void remove(EventSource::Descriptor);
   void eventLoop();
+  void interrupt(bool);
 
 private:
   Reactor(const Reactor&);
@@ -29,9 +31,11 @@ private:
   typedef std::pair<EventHandler::Ptr, EventSource::EventTypes> t_toHandle;
   typedef std::vector<t_toHandle> t_toHandles;
 
-  boost::mutex m_mutex;
+  std::mutex m_mutex;
+  bool m_run;
   t_handlers m_handlers;
   EventDemultiplexer::Ptr m_eventDemultiplexer;
 };
+}
 
 #endif

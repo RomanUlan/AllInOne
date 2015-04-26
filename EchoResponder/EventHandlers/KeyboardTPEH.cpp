@@ -1,10 +1,10 @@
-#include "KeyboardEH.hpp"
+#include "KeyboardTPEH.hpp"
 #include "IO/Epoll.hpp"
 
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>
 
-KeyboardEH::KeyboardEH(const std::string& p_fileName, KeyboardES::Ptr p_kES, EventEngines::ThreadPool& p_tp)
+KeyboardTPEH::KeyboardTPEH(const std::string& p_fileName, KeyboardES::Ptr p_kES, EventEngines::ThreadPool& p_tp)
   : EventHandler(p_kES)
   , m_file(p_fileName.c_str(), std::ofstream::out)
   , m_threadPool(p_tp)
@@ -15,12 +15,12 @@ KeyboardEH::KeyboardEH(const std::string& p_fileName, KeyboardES::Ptr p_kES, Eve
   }
 }
 
-KeyboardEH::~KeyboardEH()
+KeyboardTPEH::~KeyboardTPEH()
 {
   m_file.close();
 }
 
-void KeyboardEH::handle(const EventSource::EventTypes& p_eventTypes)
+void KeyboardTPEH::handle(const EventSource::EventTypes& p_eventTypes)
 {
   EventSource::EventTypes::const_iterator iIn = p_eventTypes.find(Epoll::EventType::In);
   if ( (iIn != p_eventTypes.end()) && (p_eventTypes.size() == 1) )

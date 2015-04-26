@@ -24,6 +24,7 @@ std::string AcceptorSEH::handle(const EventSource::EventTypes& p_eventTypes)
     EchoResponderSEH::Ptr erSEH(new EchoResponderSEH(msgES, m_hsha));
     EchoResponderAEH::Ptr erAEH(new EchoResponderAEH(msgES, m_hsha));
     m_hsha.add(HSHA::Handlers(erSEH, erAEH));
+    m_hsha.modify(m_eventSource);
   }
   else
   {
